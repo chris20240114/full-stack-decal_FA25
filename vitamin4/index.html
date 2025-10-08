@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" type="text/javascript"></script>
+    <title>Vitamin 3: CSS Layout</title>
+  </head>
+  <body>
+    <aside id="sidebar" data-testid="sidebar">
+      <div>
+        <div>
+          <button id="sidebar-button" data-testid="sidebar-button">›</button>
+        </div>
+        <div>
+          <h3>Pencil Sharpeners</h3>
+          <ul>
+            <li><a>Prisma Premier</a></li>
+            <li><a>Staedtler Mars 501</a></li>
+            <li><a>Carl Angel-5</a></li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+    <main>
+      <h1>Pencil Point Perfection</h1>
+      <h2>Vihan's Favorite Pencil Sharpeners Ranked</h2>
+
+      <div class="exercises">
+        <div class="exercise exercise-1">
+          <div>
+            <label for="task-name">Task Name</label>
+            <input
+              type="text"
+              id="task-name"
+              name="task-name"
+              placeholder="Pick up Trash"
+            />
+          </div>
+          <button id="add-todo" data-testid="add-todo">Add Todo</button>
+          <ul id="todo-list">
+            <li>Do homework</li>
+            <li>Go to gym</li>
+          </ul>
+        </div>
+        <div class="exercise exercise-2">
+          <div>
+            <label for="first-name">First Name</label>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              placeholder="Taylor"
+            />
+          </div>
+          <div>
+            <label for="last-name">Last Name</label>
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              placeholder="Swift"
+            />
+          </div>
+          <p id="message" data-testid="message">
+            Type your name to see a message!
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

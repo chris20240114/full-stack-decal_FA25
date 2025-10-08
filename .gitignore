@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# un-ignore the vitamin4 directory, __MACOSX, and README.md
+!vitamin4/
+!__MACOSX/
+!README.md
+
+# Don't ignore the .gitignore file itself
+!.gitignore

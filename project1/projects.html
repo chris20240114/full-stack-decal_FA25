@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Projects by Chris Shen — Ableton music and a high-school marketplace."
+    />
+    <title>Chris Shen — Projects</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container bar">
+        <a class="brand" href="index.html">chris shen</a>
+        <nav aria-label="Primary">
+          <ul class="menu">
+            <li><a href="index.html#about">about</a></li>
+            <li><a href="index.html#hobbies">hobbies</a></li>
+            <li><a href="index.html#cocktails">mixes &amp; drinks</a></li>
+            <li><a href="projects.html" aria-current="page">projects</a></li>
+            <li><a href="index.html#contact">contact</a></li>
+            <li>
+              <a
+                href="https://github.com/chris20240114"
+                target="_blank"
+                rel="noopener noreferrer"
+                >github</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/chris-shen-a5a8bb327"
+                target="_blank"
+                rel="noopener noreferrer"
+                >linkedin</a
+              >
+            </li>
+            <li>
+              <button
+                id="themeToggle"
+                class="chip"
+                type="button"
+                aria-pressed="false"
+              >
+                theme
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <h1>Projects</h1>
+
+        <article id="ableton" class="project">
+          <h2>Making Music with Ableton</h2>
+          <p>
+            I write short electronic and lo-fi tracks in Ableton Live. I sketch
+            ideas with a MIDI keyboard, then arrange, automate, and mix with EQ,
+            compression, and reverb. I try to keep each idea small and
+            repeatable so I can iterate quickly.
+          </p>
+          <ul class="bullets">
+            <li>
+              <strong>Tools:</strong> Ableton Live, MIDI keyboard, stock
+              devices/plugins
+            </li>
+            <li>
+              <strong>Techniques:</strong> sidechain compression, subtractive
+              EQ, sends/returns, automation lanes
+            </li>
+            <li>
+              <strong>Outcome:</strong> 6+ demos; practice with mixing and gain
+              staging
+            </li>
+          </ul>
+        </article>
+
+        <article id="marketplace" class="project">
+          <h2>High-School Marketplace Website</h2>
+          <p>
+            A simple buy/sell site I built in high school to learn full-stack
+            basics. Users could browse listings, add items to a cart, and
+            complete a mock checkout (no real payments). I focused on clear UI
+            and clean separation of data from presentation.
+          </p>
+          <ul class="bullets">
+            <li>
+              <strong>Stack:</strong> HTML/CSS/TypeScript on the front end; JSON
+              storage (mock backend)
+            </li>
+            <li>
+              <strong>Features:</strong> product cards, search/filter, cart,
+              order summary
+            </li>
+            <li>
+              <strong>Lessons:</strong> state management without frameworks,
+              accessibility, input validation
+            </li>
+          </ul>
+        </article>
+
+        <p><a class="btn ghost" href="index.html">← Back home</a></p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <small>© <span id="year"></span> Chris Shen</small>
+      </div>
+    </footer>
+
+    <script type="module" src="dist/script.js"></script>
+  </body>
+</html>

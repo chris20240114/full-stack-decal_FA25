@@ -3,8 +3,13 @@
 
 # un-ignore the vitamin4 directory, __MACOSX, and README.md
 !vitamin4/
+!project1/
 !__MACOSX/
 !README.md
+
+
+#unignore all files in project1
+!project1/**
 
 # Don't ignore the .gitignore file itself
 !.gitignore

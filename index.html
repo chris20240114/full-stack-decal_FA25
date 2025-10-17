@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Chris Shen — about me, hobbies, mixes & drinks, projects, and contact."
+    />
+    <title>Chris Shen — Personal Website</title>
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container bar">
+        <a class="brand" href="index.html">chris shen</a>
+        <nav aria-label="Primary">
+          <ul class="menu">
+            <li><a href="#about">about</a></li>
+            <li><a href="#hobbies">hobbies</a></li>
+            <li><a href="#cocktails">mixes &amp; drinks</a></li>
+            <li><a href="projects.html">projects</a></li>
+            <li><a href="#contact">contact</a></li>
+            <li>
+              <a
+                href="https://github.com/chris20240114"
+                target="_blank"
+                rel="noopener noreferrer"
+                >github</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/chris-shen-a5a8bb327"
+                target="_blank"
+                rel="noopener noreferrer"
+                >linkedin</a
+              >
+            </li>
+            <li>
+              <button
+                id="themeToggle"
+                class="chip"
+                type="button"
+                aria-pressed="false"
+              >
+                theme
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- about me -->
+      <section class="about" id="about">
+        <div class="container about-grid">
+          <div>
+            <h1>Hi, I’m <span class="accent">Chris!</span>.</h1>
+            <p class="lead">
+              I’m a student in Berkeley who likes building small, useful things
+              and making music. Recently I’ve been tinkering with a
+              bike-ridership viz, a tiny word game, and a campus food map.
+            </p>
+            <p>
+              <a class="underline" href="mailto:cs.mizuwari@berkeley.edu"
+                >cs.mizuwari@berkeley.edu</a
+              >
+            </p>
+            <p class="row social">
+              <a
+                class="underline"
+                href="https://github.com/chris20240114"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <span aria-hidden="true">·</span>
+              <a
+                class="underline"
+                href="https://www.linkedin.com/in/chris-shen-a5a8bb327"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </p>
+            <div class="row">
+              <a class="btn" href="projects.html">See my projects</a>
+              <a class="btn ghost" href="#contact">Say hello</a>
+            </div>
+          </div>
+          <figure class="about-figure">
+            <img
+              src="assets/me.jpg"
+              alt="Chris in Berkeley at night"
+              data-lightbox="gallery"
+            />
+            <figcaption >
+              Me, I guess. I no longer have long hair though so you probably won't recognize me if you see me.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- hobbies: violin-only -->
+      <section id="hobbies" class="section">
+        <div class="container">
+          <h2>Hobbies</h2>
+          <ul class="bullets">
+            <li>Making and tasting cocktails 🍸</li>
+            <li>Playing violin 🎻</li>
+            <li>Gym & fitness 🏋️‍♂️</li>
+          </ul>
+          <div class="grid-3">
+            <img
+              src="assets/me_but_violin.jpg"
+              alt="Playing violin, close view"
+              data-lightbox="gallery"
+            />
+            <img
+              src="assets/more_of_me_violin.jpg"
+              alt="Practicing violin at home"
+              data-lightbox="gallery"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- mixes & drinks gallery -->
+      <section id="cocktails" class="section">
+        <div class="container">
+          <h2>Mixes &amp; Drinks</h2>
+          <div class="grid-3">
+            <img
+              src="assets/espresso_martini.jpg"
+              alt="Espresso martini with coffee bean garnish"
+              data-lightbox="gallery"
+            />
+            <img
+              src="assets/mojito.jpg"
+              alt="Mojito with lime and mint"
+              data-lightbox="gallery"
+            />
+            <img
+              src="assets/xyz.jpg"
+              alt="Drink still life on a wooden table"
+              data-lightbox="gallery"
+            />
+            <img
+              src="assets/alcoholism.jpg"
+              alt="Laptop with music video and a glass of wine"
+              data-lightbox="gallery"
+            />
+            <img
+              src="assets/napa.jpg"
+              alt="Wine tasting table in Napa"
+              data-lightbox="gallery"
+            />
+            <img
+              src="assets/whiskey_sour.jpg"
+              alt="Whiskey sour on a table"
+              data-lightbox="gallery"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- projects preview -->
+      <section class="section" id="projects-preview">
+        <div class="container">
+          <h2>Projects</h2>
+          <div class="cards">
+            <article class="card">
+              <div class="card-body">
+                <h3>Making Music in Ableton</h3>
+                <p>
+                  Electronic and lo-fi sketches using Ableton Live, MIDI, and
+                  basic mixing.
+                </p>
+                <a class="card-link" href="projects.html#ableton"
+                  >Read more →</a
+                >
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-body">
+                <h3>High-School Marketplace</h3>
+                <p>
+                  A simple buy/sell site with listings, cart, and mock checkout.
+                </p>
+                <a class="card-link" href="projects.html#marketplace"
+                  >Read more →</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section id="contact" class="section">
+        <div class="container">
+          <h2>Contact</h2>
+          <form class="form" onsubmit="return handleSubmit(event)">
+            <label class="field">
+              <span>Name</span>
+              <input name="name" required placeholder="First Last" />
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@berkeley.edu"
+              />
+            </label>
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button class="btn" type="submit">Send</button>
+            <p id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      ↑
+    </button>
+
+    <footer class="footer">
+      <div class="container">
+        <small
+          >© <span id="year"></span> Chris Shen · personal website ·
+          HTML/CSS/TypeScript</small
+        >
+      </div>
+    </footer>
+
+    <script type="module" src="dist/script.js"></script>
+  </body>
+</html>

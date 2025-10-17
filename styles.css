@@ -1,15 +1,20 @@
-/* ========== design tokens ========== */
+/* -----------------------------------------------------------------------
+   Design tokens (CSS variables)
+   These are theme-aware; the TypeScript toggler updates some of them.
+   --------------------------------------------------------------------- */
 :root {
-  --bg: #ffffff;
-  --ink: #121416;
-  --muted: #6b7280;
-  --card: #f6f7f9;
-  --surface: rgba(255, 255, 255, 0.92);
-  --line: #e5e7eb;
-  --accent: #176b6b;
+  --bg: #ffffff; /* page background */
+  --ink: #121416; /* primary text color */
+  --muted: #6b7280; /* secondary text color */
+  --card: #f6f7f9; /* card background */
+  --surface: rgba(255, 255, 255, 0.92); /* sticky header / surfaces */
+  --line: #e5e7eb; /* borders/dividers */
+  --accent: #176b6b; /* links, buttons, accents */
 }
 
-/* ========== base ========== */
+/* -----------------------------------------------------------------------
+   Base element resets and typography
+   --------------------------------------------------------------------- */
 * {
   box-sizing: border-box;
 }
@@ -43,7 +48,7 @@ a {
   padding: 64px 0;
 }
 
-/* sr-only helper */
+/* Screen-reader-only helper (visually hidden, still accessible) */
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -56,7 +61,9 @@ a {
   border: 0;
 }
 
-/* ========== top bar ========== */
+/* -----------------------------------------------------------------------
+   Sticky top navigation
+   --------------------------------------------------------------------- */
 .topbar {
   position: sticky;
   top: 0;
@@ -64,7 +71,7 @@ a {
   background: var(--surface);
   backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid var(--line);
-  box-shadow: 0 1px 0 var(--line);
+  box-shadow: 0 1px 0 var(--line); /* subtle separation line */
 }
 .bar {
   display: flex;
@@ -102,7 +109,9 @@ a {
   cursor: pointer;
 }
 
-/* ========== ABOUT (formerly .hero) ========== */
+/* -----------------------------------------------------------------------
+   ABOUT section (layout + typography)
+   --------------------------------------------------------------------- */
 .about {
   padding: 72px 0 48px;
 }
@@ -137,7 +146,9 @@ h1 {
   border-radius: 14px;
 }
 
-/* ========== sections ========== */
+/* -----------------------------------------------------------------------
+   General section headings & grids
+   --------------------------------------------------------------------- */
 h2 {
   font-size: 1.8rem;
   margin: 0 0 12px;
@@ -155,7 +166,9 @@ h2 {
   margin-bottom: 6px;
 }
 
-/* ========== cards / buttons / forms ========== */
+/* -----------------------------------------------------------------------
+   Cards, buttons, and form inputs
+   --------------------------------------------------------------------- */
 .cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -204,7 +217,9 @@ textarea {
   padding: 10px;
 }
 
-/* ========== footer / util ========== */
+/* -----------------------------------------------------------------------
+   Footer and utility elements
+   --------------------------------------------------------------------- */
 .footer {
   border-top: 1px solid var(--line);
   padding: 24px 0;
@@ -219,10 +234,13 @@ textarea {
   color: var(--ink);
   border: 1px solid var(--line);
   padding: 10px;
-  display: none;
+  display: none; /* shown via TS */
 }
 
-/* ========== scroll progress (injected) ========== */
+/* -----------------------------------------------------------------------
+   Scroll progress bar (inserted by TypeScript)
+   Uses --pct custom property updated by script.
+   --------------------------------------------------------------------- */
 [data-progress] {
   position: fixed;
   top: 0;
@@ -237,7 +255,9 @@ textarea {
   );
 }
 
-/* ========== reveal animations ========== */
+/* -----------------------------------------------------------------------
+   Reveal-on-scroll animations (disabled if prefers-reduced-motion)
+   --------------------------------------------------------------------- */
 .will-reveal {
   opacity: 0;
   transform: translateY(8px);
@@ -253,7 +273,9 @@ textarea {
   }
 }
 
-/* ========== lightbox ========== */
+/* -----------------------------------------------------------------------
+   Lightbox overlay (structure the TS creates)
+   --------------------------------------------------------------------- */
 .lb {
   position: fixed;
   inset: 0;
@@ -307,7 +329,9 @@ textarea {
   cursor: pointer;
 }
 
-/* ========== responsive ========== */
+/* -----------------------------------------------------------------------
+   Responsive tweaks
+   --------------------------------------------------------------------- */
 @media (max-width: 920px) {
   .about-grid {
     grid-template-columns: 1fr;

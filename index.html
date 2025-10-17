@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Basic metadata for accessibility and responsiveness -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Short description for search/social previews -->
     <meta
       name="description"
       content="Chris Shen — about me, hobbies, mixes & drinks, projects, and contact."
     />
     <title>Chris Shen — Personal Website</title>
+
+    <!-- Favicon and site stylesheet -->
     <link rel="icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Sticky top navigation (links to each section + external profiles) -->
     <header class="topbar">
       <div class="container bar">
         <a class="brand" href="index.html">chris shen</a>
         <nav aria-label="Primary">
           <ul class="menu">
+            <!-- Internal page anchors -->
             <li><a href="#about">about</a></li>
             <li><a href="#hobbies">hobbies</a></li>
             <li><a href="#cocktails">mixes &amp; drinks</a></li>
+            <!-- Link to the separate projects page (fulfills ≥2 pages requirement) -->
             <li><a href="projects.html">projects</a></li>
             <li><a href="#contact">contact</a></li>
+            <!-- External links open in a new tab -->
             <li>
               <a
                 href="https://github.com/chris20240114"
@@ -38,6 +46,7 @@
                 >linkedin</a
               >
             </li>
+            <!-- Theme toggle button (handled in TypeScript) -->
             <li>
               <button
                 id="themeToggle"
@@ -54,11 +63,11 @@
     </header>
 
     <main>
-      <!-- about me -->
+      <!-- ABOUT ME (intro section with name, short paragraph, and CTAs) -->
       <section class="about" id="about">
         <div class="container about-grid">
           <div>
-            <h1>Hi, I’m <span class="accent">Chris!</span>.</h1>
+            <h1>Hi, I’m <span class="accent">Chris</span>.</h1>
             <p class="lead">
               I’m a student in Berkeley who likes building small, useful things
               and making music. Recently I’ve been tinkering with a
@@ -69,6 +78,8 @@
                 >cs.mizuwari@berkeley.edu</a
               >
             </p>
+
+            <!-- Simple social row -->
             <p class="row social">
               <a
                 class="underline"
@@ -86,33 +97,41 @@
                 >LinkedIn</a
               >
             </p>
+
+            <!-- Primary calls to action -->
             <div class="row">
               <a class="btn" href="projects.html">See my projects</a>
               <a class="btn ghost" href="#contact">Say hello</a>
             </div>
           </div>
+
+          <!-- Personal photo (also lightbox-enabled via data attribute) -->
           <figure class="about-figure">
             <img
               src="assets/me.jpg"
               alt="Chris in Berkeley at night"
               data-lightbox="gallery"
             />
-            <figcaption >
-              Me, I guess. I no longer have long hair though so you probably won't recognize me if you see me.
+            <!-- Hidden caption for screen readers; keep descriptive alt text above -->
+            <figcaption class="visually-hidden">
+              Portrait of Chris in Berkeley at night
             </figcaption>
           </figure>
         </div>
       </section>
 
-      <!-- hobbies: violin-only -->
+      <!-- HOBBIES (bulleted list requirement + violin-only photo grid) -->
       <section id="hobbies" class="section">
         <div class="container">
           <h2>Hobbies</h2>
+          <!-- Bulleted list (fulfills <ul>/<li> requirement) -->
           <ul class="bullets">
             <li>Making and tasting cocktails 🍸</li>
             <li>Playing violin 🎻</li>
             <li>Gym & fitness 🏋️‍♂️</li>
           </ul>
+
+          <!-- Violin photos only (lightbox-enabled) -->
           <div class="grid-3">
             <img
               src="assets/me_but_violin.jpg"
@@ -128,7 +147,7 @@
         </div>
       </section>
 
-      <!-- mixes & drinks gallery -->
+      <!-- MIXES & DRINKS (photo gallery; helps meet ≥5 images) -->
       <section id="cocktails" class="section">
         <div class="container">
           <h2>Mixes &amp; Drinks</h2>
@@ -167,7 +186,7 @@
         </div>
       </section>
 
-      <!-- projects preview -->
+      <!-- PROJECTS PREVIEW (links to full details on projects page) -->
       <section class="section" id="projects-preview">
         <div class="container">
           <h2>Projects</h2>
@@ -199,15 +218,17 @@
         </div>
       </section>
 
-      <!-- contact -->
+      <!-- CONTACT (fulfills “basic form” requirement) -->
       <section id="contact" class="section">
         <div class="container">
           <h2>Contact</h2>
+          <!-- Inline onsubmit calls TS handler window.handleSubmit -->
           <form class="form" onsubmit="return handleSubmit(event)">
             <label class="field">
               <span>Name</span>
               <input name="name" required placeholder="First Last" />
             </label>
+
             <label class="field">
               <span>Email</span>
               <input
@@ -217,17 +238,21 @@
                 placeholder="you@berkeley.edu"
               />
             </label>
+
             <label class="field">
               <span>Message</span>
               <textarea name="message" rows="5" required></textarea>
             </label>
+
             <button class="btn" type="submit">Send</button>
+            <!-- Live region for form submission status -->
             <p id="formStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
       </section>
     </main>
 
+    <!-- Back-to-top button (shown by TS when scrolled) -->
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
       ↑
     </button>
@@ -241,6 +266,7 @@
       </div>
     </footer>
 
+    <!-- IMPORTANT: load the compiled JS from dist/ (TypeScript emits this) -->
     <script type="module" src="dist/script.js"></script>
   </body>
 </html>

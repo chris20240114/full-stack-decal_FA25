@@ -13,3 +13,5 @@
 
 # Don't ignore the .gitignore file itself
 !.gitignore
+!simple_todo_api/
+!simple_todo_api/**

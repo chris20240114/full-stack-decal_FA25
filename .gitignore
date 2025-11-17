@@ -15,3 +15,7 @@
 !.gitignore
 !simple_todo_api/
 !simple_todo_api/**
+!vitamin7/
+!vitamin7/**
+!apimagination/
+!apimagination/**

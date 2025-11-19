@@ -4,15 +4,13 @@ import { searchCafes } from '../services/external.service'
 
 export async function search(req: Request, res: Response) {
   try {
-    const q = String(req.query.q ?? '')
-    const lat = req.query.lat ? Number(req.query.lat) : undefined
-    const lon = req.query.lon ? Number(req.query.lon) : undefined
-    const km  = req.query.km  ? Number(req.query.km)  : undefined
-    const items = await searchCafes(q, { lat, lon, km })
+    const q = String(req.query.q ?? "")
+    const km = Number(req.query.km ?? 2)
+    const items = await searchCafes(q, { km })
     res.json({ items })
-  } catch (err) {
-    // Soft-fail: return empty set so frontend stays smooth
-    res.json({ items: [], note: 'search temporarily unavailable' })
+  } catch (err: any) {
+    console.error("Search failed:", err)
+    res.status(504).json({ message: err?.message ?? "Search failed" })
   }
 }
 

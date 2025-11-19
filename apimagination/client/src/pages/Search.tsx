@@ -1,77 +1,74 @@
 import { useEffect, useMemo, useState } from "react"
-import { searchExternal, saveItem } from "../lib/api"
+import { searchExternal, saveItem, searchItems } from "../lib/api"
 import CafeCard from "../components/CafeCard"
-import SkeletonCard from "../components/SkeletonCard"
+import SkeletonCard from "../components/SkeletonCard" 
+import type { Item } from "../lib/Item"
 
-export default function Search() {
-  const [q, setQ] = useState("coffee")
-  const [results, setResults] = useState<any[]>([])
+export default function SearchPage() {
+  const [query, setQuery] = useState("coffee")
+  const [items, setItems] = useState<Item[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // Debounce user typing a bit
-  const debouncedQ = useDebounce(q, 350)
-
-  useEffect(() => {
-    run(debouncedQ)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedQ])
-
-  async function run(query: string) {
-    if (!query?.trim()) { setResults([]); return }
-    setLoading(true); setError(null)
+  const runSearch = async (q: string) => {
+    setLoading(true)
+    setError(null)
     try {
-      const data = await searchExternal(query)
-      setResults(data.items ?? [])
-    } catch (e: any) {
-      setError(e?.response?.data?.message || "Search temporarily unavailable.")
-      setResults([])
-    } finally { setLoading(false) }
+      const res = await searchItems(q)
+      console.log("SearchPage items:", res) // ✅ debug
+      setItems(res)
+    } catch (e) {
+      console.error(e)
+      setError("Failed to fetch cafés.")
+    } finally {
+      setLoading(false)
+    }
   }
 
-  function onSubmit(e: React.FormEvent) {
+  useEffect(() => {
+    runSearch(query)
+  }, [])
+
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    run(q)
+    runSearch(query)
   }
 
   return (
-    <section className="space-y-5">
-      <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <h2 className="text-2xl font-semibold tracking-tight">Find Cafés near Berkeley</h2>
-        <form onSubmit={onSubmit} className="flex gap-2 w-full sm:w-auto">
+    <div className="container-safe py-8">
+      <form
+        onSubmit={onSubmit}
+        className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <h1 className="text-2xl font-semibold text-gray-900">
+          Find Cafés near Berkeley
+        </h1>
+        <div className="flex gap-2 w-full sm:w-auto">
           <input
-            className="w-full sm:w-72 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-600"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="coffee, boba, espresso…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
+            placeholder="Search for coffee, boba, tea..."
           />
-          <button className="btn-neutral" type="submit">Search</button>
-        </form>
-      </header>
+          <button type="submit" className="btn btn-primary">
+            Search
+          </button>
+        </div>
+      </form>
 
-      {error && <p className="text-sm text-rose-600">{error}</p>}
+      {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
-      {loading ? (
-        <ul className="grid sm:grid-cols-2 gap-4 list-none p-0">
-          {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
-        </ul>
-      ) : results.length === 0 ? (
-        <EmptyState />
-      ) : (
-        <ul className="grid sm:grid-cols-2 gap-4 list-none p-0">
-          {results.map((r: any, i: number) => (
-            <CafeCard
-              key={r.externalId || i}
-              item={r}
-              onSave={() => saveItem(r).catch(() => alert("Save failed"))}
-            />
-          ))}
-        </ul>
-      )}
-    </section>
+      <div className="mt-6 grid gap-6 md:grid-cols-2">
+        {items.map((item) => (
+          <CafeCard
+            key={item.externalId ?? item.title}
+            item={item}
+          />
+        ))}
+      </div>
+    </div>
   )
 }
-
 function EmptyState() {
   return (
     <div className="card p-8 text-center">
